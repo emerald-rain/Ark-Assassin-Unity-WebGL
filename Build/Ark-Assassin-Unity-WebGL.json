@@ -1,0 +1,13 @@
+{
+"companyName": "DeGenerous DAO and malysh_ka",
+"productName": "ArkArcher",
+"dataUrl": "Ark-Assassin-Unity-WebGL.data.unityweb",
+"wasmCodeUrl": "Ark-Assassin-Unity-WebGL.wasm.code.unityweb",
+"wasmFrameworkUrl": "Ark-Assassin-Unity-WebGL.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
