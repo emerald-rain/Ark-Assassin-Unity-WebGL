@@ -13,16 +13,20 @@
     function adjustGameContainerSize() {
       var gameContainer = document.getElementById("gameContainer");
       var aspectRatio = 9 / 16;
-      var availableHeight = window.innerHeight;
+      var screenWidth = window.innerWidth;
+      var screenHeight = window.innerHeight;
 
-      var containerHeight = availableHeight;
-      var containerWidth = availableHeight * aspectRatio;
+      var containerWidth = screenWidth;
+      var containerHeight = screenWidth / aspectRatio;
+
+      if (containerHeight > screenHeight) {
+        containerHeight = screenHeight;
+        containerWidth = screenHeight * aspectRatio;
+      }
 
       gameContainer.style.width = containerWidth + "px";
       gameContainer.style.height = containerHeight + "px";
     }
-
-    window.addEventListener("resize", adjustGameContainerSize);
 
     document.addEventListener("DOMContentLoaded", function () {
       adjustGameContainerSize();
@@ -32,16 +36,16 @@
 </head>
 <body>
   <script>
-		function FixInputOnSubmit() {
-			document.getElementById("fixInput").blur();
-			event.preventDefault();
-		}
-	</script>
+    function FixInputOnSubmit() {
+      document.getElementById("fixInput").blur();
+      event.preventDefault();
+    }
+  </script>
   <div>
-		<form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
-			<input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
-		</form>
-	</div>
+    <form onsubmit="FixInputOnSubmit()" autocomplete="off" style="width: 0px; height: 0px; position: absolute; top: -9999px;">
+      <input type="text" id="fixInput" oninput="gameInstance.Module.ccall('FixInputUpdate', null)" onblur="gameInstance.Module.ccall('FixInputOnBlur', null)" style="font-size: 42px;">
+    </form>
+  </div>
 
   <div class="webgl-content">
     <div id="gameContainer" style="width: 100%; height: 100%;"></div>
