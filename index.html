@@ -10,6 +10,9 @@
   <script src="TemplateData/UnityProgress.js"></script>
   <script src="Build/UnityLoader.js"></script>
   <script>
+    // Увеличьте DPI ещё больше
+    var customDevicePixelRatio = 2.0; // Здесь вы можете установить желаемое значение
+
     function adjustGameContainerSize() {
       var gameContainer = document.getElementById("gameContainer");
       var aspectRatio = 9 / 16;
@@ -26,6 +29,10 @@
 
       gameContainer.style.width = containerWidth + "px";
       gameContainer.style.height = containerHeight + "px";
+
+      // Увеличьте DPI с учетом customDevicePixelRatio
+      var devicePixelRatio = customDevicePixelRatio || (window.devicePixelRatio || 1);
+      gameContainer.style.transform = "scale(" + devicePixelRatio + ")";
     }
 
     document.addEventListener("DOMContentLoaded", function () {
